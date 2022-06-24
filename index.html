@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MaximCosta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/91082344?v=4" type="image/png">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
+
+    <template id="repo_template">
+        <section>
+            <div class="section_title">{{title}}</div>
+            <div class="about_section">
+                <span style="display:none;">{{about}}</span>
+            </div>
+            <div class="bottom_section">
+                <span style="display:inline-block;"><i class="fas fa-code"></i>&nbsp; <span>{{lang}}</span></span>
+                <span><i class="fas fa-star"></i>&nbsp; <span>{{star}}</span></span>
+                <span><i class="fas fa-code-branch"></i>&nbsp; <span>{{fork}}</span></span>
+            </div>
+        </section>
+    </template>
+
+</head>
+
+<body>
+    <div id="loading">
+        <div id="spinner"></div>
+    </div>
+    <div id="profile">
+        <div id="profile_img" style="background: url(https://avatars.githubusercontent.com/u/91082344?v=4) center;">
+        </div>
+        <div id="username"><span style="display:block;">Maxio</span><a
+                href="https://github.com/MaximCosta">@MaximCosta</a></div>
+        <div id="userbio" style="display: block;">Je fais des petits jeux, des sites et autres. Mes langages : Python,
+            WEB (html/css/js/php/mysql), React, Uno (arduino), C# (Unity), Java (mod/plugin minecraft)</div>
+        <div id="about">
+            <span style="display:none;"><i class="fas fa-users"></i> &nbsp; null</span>
+            <span style="display:none;"><i class="fas fa-envelope"></i> &nbsp; null</span>
+            <span style="display:none;"><i class="fas fa-link"></i> &nbsp; <a href=""></a></span>
+            <span style="display:block;"><i class="fas fa-map-marker-alt"></i> &nbsp;&nbsp; Montpellier</span>
+            <span style="display:none;"><i class="fas fa-user-tie"></i> &nbsp;&nbsp; Available for hire</span>
+            <div class="socials">
+                <a href="https://codepen.io/maxim-costa" target="blank" class="socials">
+                    <img align="center"
+                        src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg"
+                        alt="maxim-costa" height="30" width="40">
+                </a>
+                <a href="https://linkedin.com/in/maxim-costa-355a111a3" target="blank" class="socials">
+                    <img align="center"
+                        src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"
+                        alt="maxim-costa-355a111a3" height="30" width="40">
+                </a>
+                <a href="https://stackoverflow.com/users/15381788" target="blank" class="socials">
+                    <img align="center"
+                        src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg"
+                        alt="15381788" height="30" width="40">
+                </a>
+                <a href="https://instagram.com/ninoyoko1447" target="blank" class="socials">
+                    <img align="center"
+                        src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg"
+                        alt="ninoyoko1447" height="30" width="40">
+                </a>
+                <a href="https://discord.gg/爪ค乂҉i̽☯#0468" target="blank" class="socials">
+                    <img align="center"
+                        src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg"
+                        alt="爪ค乂҉i̽☯#0468" height="30" width="40">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="display">
+        <div id="work">
+            <h1>My Works.</h1>
+            <div class="projects" id="work_section">
+                <a href="#">
+                    <section>
+                        <div class="section_title">{{title}}</div>
+                        <div class="about_section">
+                            <span style="display:none;">{{about}}</span>
+                        </div>
+                        <div class="bottom_section">
+                            <span style="display:inline-block;"><i class="fas fa-code"></i>&nbsp;
+                                <span>{{lang}}</span></span>
+                            <span><i class="fas fa-star"></i>&nbsp; <span>{{star}}</span></span>
+                            <span><i class="fas fa-code-branch"></i>&nbsp; <span>{{fork}}</span></span>
+                        </div>
+                    </section>
+                </a>
+            </div>
+        </div>
+        <div id="forks" style="display:none;">
+            <h1>Forks.</h1>
+            <div class="projects" id="forks_section"></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/utils.js"></script>
+    <script type="text/javascript">
+        setTimeout(function () {
+            document.getElementById("loading").classList.add("animated");
+            document.getElementById("loading").classList.add("fadeOut");
+            setTimeout(function () {
+                document.getElementById("loading").classList.remove("animated");
+                document.getElementById("loading").classList.remove("fadeOut");
+                document.getElementById("loading").style.display = "none";
+            }, 800);
+        }, 1500);
+    </script>
+    <script type="module" src="js/github-repo.js"></script>
+</body>
+
+</html>
